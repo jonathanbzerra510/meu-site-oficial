@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Bezerra – Advocacia e Consultoria</title>
+    <style>
+        /* Estilos Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /* Cores principais */
+        :root {
+            --azul-escuro: #1A253D;
+            --dourado: #C5A869;
+            --branco: #ffffff;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: var(--branco);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--azul-escuro);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: var(--azul-escuro);
+            font-weight: 500;
+        }
+        .btn-header {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* Seção Hero (Início) */
+        .hero {
+            background-color: #555; /* Cor de fundo caso a imagem não carregue */
+            background-image: linear-gradient(rgba(26, 37, 61, 0.8), rgba(26, 37, 61, 0.8)), url('fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--branco);
+            text-align: center;
+            padding: 100px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero h1 span {
+            color: var(--dourado);
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn-primary {
+            background-color: transparent;
+            color: var(--branco);
+            border: 2px solid var(--branco);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-secondary {
+            background-color: var(--dourado);
+            color: var(--branco);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 2px solid var(--dourado);
+        }
+
+        /* Seções de Conteúdo */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--azul-escuro);
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--dourado);
+            margin: 10px auto 0;
+        }
+        .atuacao, .video {
+            padding: 80px 20px;
+            background-color: var(--branco);
+        }
+        .video {
+            background-color: #f8f9fa;
+        }
+
+        /* Contato */
+        .contato {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            padding: 80px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .contato-info {
+            flex: 1;
+            min-width: 300px;
+            margin-right: 20px;
+        }
+        .contato-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--branco);
+        }
+        .contato-item {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .contato-img {
+            flex: 1;
+            min-width: 300px;
+            text-align: right;
+        }
+        .contato-img img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--branco);
+            text-align: center;
+            padding: 20px;
+            color: var(--azul-escuro);
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Fixo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Jonathan Bezerra</div>
+        <nav>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Áreas</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn-header">Acessar</a>
+    </header>
+
+    <section class="hero">
+        <h1>Advocacia pautada na ética, <span>responsabilidade</span> e comprometimento</h1>
+        <p>Atuação com transparência na resolução de conflitos e validação de direitos,<br>oferecendo um serviço técnico, célere e dedicado à justiça.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">Conheça o Escritório</a>
+            <a href="#" class="btn-secondary">Fale com um Advogado</a>
+        </div>
+    </section>
+
+    <section class="atuacao">
+        <h2 class="section-title">Áreas de Atuação</h2>
+        <p style="text-align: center; color: #666;">Serviços jurídicos especializados para atender suas necessidades.</p>
+        <!-- Aqui você pode adicionar cards para as áreas de atuação depois -->
+    </section>
+
+    <section class="video">
+        <h2 class="section-title">Conteúdo em Vídeo</h2>
+        <p style="text-align: center; color: #666;">Acompanhe nossas atualizações e explicações sobre seus direitos.</p>
+    </section>
+
+    <section class="contato">
+        <div class="contato-info">
+            <h2>Entre em Contato</h2>
+            <p style="margin-bottom: 30px;">Para orientações, análises e agendamentos, envie um e-mail ou fale diretamente no WhatsApp.</p>
+            
+            <div class="contato-item">
+                <p>📍 São Luís / São José de Ribamar - MA</p>
+            </div>
+            <div class="contato-item">
+                <p>✉️ seuemail@dominio.com.br</p>
+            </div>
+            <div class="contato-item">
+                <p>📞 (98) 9XXXX-XXXX</p>
+            </div>
+        </div>
+        <div class="contato-img">
+            <!-- Substitua 'perfil.jpg' pelo nome da sua foto -->
+            <img src="perfil.jpg" alt="Jonathan Bezerra" style="max-height: 400px; object-fit: cover;">
+        </div>
+    </section>
+
+    <footer>
+        <p>Jonathan Bezerra – Advocacia e Consultoria © 2026. Todos os direitos reservados.</p>
+    </footer>
+
+    <a href="https://wa.me/5598900000000" class="whatsapp-float" target="_blank">WhatsApp</a>
+
+</body>
+</html>
