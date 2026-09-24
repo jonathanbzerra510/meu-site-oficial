@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Bezerra – Advocacia e Consultoria Previdenciária</title>
+    <title>Jonathan Bezerra – Advocacia e Consultoria</title>
     <style>
         /* Estilos Gerais */
         * {
@@ -49,14 +49,15 @@
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
         nav a {
             color: var(--azul-escuro);
             font-weight: 500;
+            cursor: pointer;
             transition: color 0.3s;
         }
-        nav a:hover {
+        nav a:hover, nav a.active {
             color: var(--dourado);
         }
         .btn-header {
@@ -74,6 +75,14 @@
             background-color: #1ebe5d;
         }
 
+        /* Sistema de Abas (Visibilidade) */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
         /* Seção Hero (Início) */
         .hero {
             background-color: #555;
@@ -82,7 +91,7 @@
             background-position: center;
             color: var(--branco);
             text-align: center;
-            padding: 100px 20px;
+            padding: 120px 20px;
         }
         .hero h1 {
             font-size: 2.5rem;
@@ -98,6 +107,9 @@
             font-size: 1.1rem;
             margin-bottom: 40px;
             line-height: 1.6;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .hero-buttons {
             display: flex;
@@ -147,9 +159,9 @@
             margin: 10px auto 0;
         }
 
-        /* Grid Previdenciário (Landing Page Integrada) */
+        /* Aba Previdenciária */
         .previdenciario {
-            padding: 80px 20px;
+            padding: 60px 20px;
             background-color: var(--branco);
             max-width: 1200px;
             margin: 0 auto;
@@ -200,13 +212,6 @@
         .btn-card:hover {
             background-color: var(--dourado);
             color: var(--azul-escuro);
-        }
-
-        /* Video Section */
-        .video {
-            padding: 80px 20px;
-            background-color: #f8f9fa;
-            text-align: center;
         }
 
         /* Contato */
@@ -286,7 +291,8 @@
                 padding: 15px 20px;
             }
             nav ul {
-                display: none; /* Simplificado para mobile */
+                gap: 15px;
+                font-size: 0.9rem;
             }
             .contato {
                 padding: 50px 20px;
@@ -296,146 +302,151 @@
 </head>
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho com Abas -->
     <header>
         <div class="logo">Jonathan Bezerra</div>
         <nav>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#previdenciario">Benefícios INSS</a></li>
-                <li><a href="#contato">Contato</a></li>
+                <li><a id="nav-inicio" class="active" onclick="switchTab('inicio')">Início</a></li>
+                <li><a id="nav-previdenciario" onclick="switchTab('previdenciario')">Área Previdenciária</a></li>
+                <li><a id="nav-contato" onclick="switchTab('contato-secao')">Contato</a></li>
             </ul>
         </nav>
-        <a href="https://wa.me/5598981757704?text=Olá,%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20o%20INSS." class="btn-header" target="_blank">
+        <a href="https://wa.me/5598981757704?text=Olá,%20gostaria%20de%20falar%20com%20um%20especialista." class="btn-header" target="_blank">
             WhatsApp
         </a>
     </header>
 
-    <!-- Seção Hero -->
-    <section class="hero">
-        <h1>Advocacia pautada na ética, <span>responsabilidade</span> e defesa dos seus direitos</h1>
-        <p>Teve o benefício negado ou não sabe qual aposentadoria pedir? Atendimento especializado em Aposentadorias e BPC com total transparência e agilidade.</p>
-        <div class="hero-buttons">
-            <a href="#previdenciario" class="btn-primary">Ver Benefícios</a>
-            <a href="https://wa.me/5598981757704?text=Olá,%20gostaria%20de%20fazer%20uma%20análise%20gratuita%20do%20meu%20benefício." class="btn-secondary" target="_blank">Falar com Advogado no WhatsApp</a>
-        </div>
-    </section>
-
-    <!-- Seção Previdenciária Completa (Landing Page Integrada) -->
-    <section id="previdenciario" class="previdenciario">
-        <h2 class="section-title">Área Previdenciária & Benefícios do INSS</h2>
-        <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto;">Trabalhamos com todas as modalidades e revisões do Regime Geral de Previdência e Assistência Social. Escolha abaixo a sua situação ou fale diretamente conosco:</p>
-        
-        <div class="prev-grid">
-            <!-- Card 1 -->
-            <div class="prev-card">
-                <div>
-                    <h3>Aposentadoria por Idade Urbana</h3>
-                    <p>Para trabalhadores urbanos que completaram 62 anos (mulheres) ou 65 anos (homens), somados ao tempo mínimo de contribuição exigido por lei.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Urbana." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+    <!-- ABA 1: INÍCIO (Estrutura original limpa) -->
+    <div id="tab-inicio" class="tab-content active">
+        <section class="hero">
+            <h1>Advocacia pautada na ética, <span>responsabilidade</span> e defesa dos seus direitos</h1>
+            <p>Atendimento jurídico consultivo e contencioso com foco em soluções eficientes e transparentes.</p>
+            <div class="hero-buttons">
+                <a onclick="switchTab('previdenciario')" class="btn-primary" style="cursor: pointer;">Ver Benefícios Previdenciários</a>
+                <a href="https://wa.me/5598981757704?text=Olá,%20gostaria%20de%20agendar%20uma%20consulta." class="btn-secondary" target="_blank">Falar com Advogado no WhatsApp</a>
             </div>
+        </section>
 
-            <!-- Card 2 -->
-            <div class="prev-card">
-                <div>
-                    <h3>Aposentadoria Rural</h3>
-                    <p>Para pequenos produtores, pescadores e trabalhadores do campo (55 anos mulheres / 60 anos homens). Sem obrigação de carnês mensais, mediante comprovação de atividade.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Rural." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
+        <section style="padding: 80px 20px; text-align: center; background-color: var(--branco);">
+            <h2 class="section-title">Compromisso com a Excelência</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: #666; line-height: 1.6;">Atuação dedicada na salvaguarda dos interesses dos clientes, prestando serviços com alto rigor técnico, acompanhamento humanizado e total clareza em cada etapa processual.</p>
+        </section>
+    </div>
 
-            <!-- Card 3 -->
-            <div class="prev-card">
-                <div>
-                    <h3>Tempo de Contribuição (Transição)</h3>
-                    <p>Opções estratégicas para quem já contribuía antes da Reforma da Previdência (regras de pontos, pedágio de 50% ou 100% e idade mínima progressiva).</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20por%20Tempo%20de%20Contribuição." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="prev-card">
-                <div>
-                    <h3>Aposentadoria Especial</h3>
-                    <p>Indicada para profissionais que atuaram expostos a agentes químicos, físicos ou biológicos nocivos à saúde (insalubridade ou periculosidade).</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Especial." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="prev-card">
-                <div>
-                    <h3>Aposentadoria da Pessoa com Deficiência (PCD)</h3>
-                    <p>Regras diferenciadas e mais vantajosas por idade ou tempo de contribuição para segurados com impedimentos físicos, mentais, intelectuais ou sensoriais.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20PCD." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="prev-card">
-                <div>
-                    <h3>Aposentadoria por Incapacidade Permanente</h3>
-                    <p>Direito garantido para segurados que, por motivo de doença ou acidente, tornaram-se total e definitivamente incapacitados para o trabalho.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20por%20Incapacidade%20Permanente." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="prev-card">
-                <div>
-                    <h3>BPC / LOAS (Idoso 65+)</h3>
-                    <p>Garantia de 1 salário mínimo mensal para idosos a partir de 65 anos em situação de vulnerabilidade, sem exigência de histórico de contribuição ao INSS.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20o%20BPC%20para%20Idoso." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="prev-card">
-                <div>
-                    <h3>BPC / LOAS (Pessoa com Deficiência)</h3>
-                    <p>Benefício assistencial de 1 salário mínimo para pessoas com deficiência de longo prazo e baixa renda familiar, avaliadas com suporte técnico.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20o%20BPC%20para%20PCD." class="btn-card" target="_blank">Consultar no WhatsApp</a>
-            </div>
-
-            <!-- Card 9 -->
-            <div class="prev-card" style="background-color: #f4f6f9; border-color: var(--dourado);">
-                <div>
-                    <h3>Teve o Benefício Negado?</h3>
-                    <p>Sofreu indeferimento injusto no INSS? Fazemos a reversão administrativa ou judicial para garantir o seu direito com agilidade.</p>
-                </div>
-                <a href="https://wa.me/5598981757704?text=Olá,%20tive%20meu%20benefício%20negado%20no%20INSS%20e%20preciso%20de%20ajuda." class="btn-card" style="background-color: var(--dourado); color: var(--azul-escuro);" target="_blank">Falar sobre Benefício Negado</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Seção de Vídeo -->
-    <section class="video">
-        <h2 class="section-title">Conteúdo Informativo</h2>
-        <p style="color: #666; margin-bottom: 20px;">Acompanhe nossas orientações e explicações detalhadas sobre os seus direitos previdenciários.</p>
-    </section>
-
-    <!-- Seção de Contato -->
-    <section id="contato" class="contato">
-        <div class="contato-info">
-            <h2>Entre em Contato</h2>
-            <p style="margin-bottom: 30px;">Para orientações, análises de casos e agendamentos, fale diretamente com nossa equipe jurídica pelo WhatsApp.</p>
+    <!-- ABA 2: ÁREA PREVIDENCIÁRIA (Isolada em aba própria) -->
+    <div id="tab-previdenciario" class="tab-content">
+        <section class="previdenciario">
+            <h2 class="section-title">Área Previdenciária & Benefícios do INSS</h2>
+            <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto;">Consulte abaixo as modalidades de aposentadorias e benefícios assistenciais amparados pela legislação previdenciária:</p>
             
-            <div class="contato-item">
-                <p>📍 São Luís / São José de Ribamar - MA</p>
+            <div class="prev-grid">
+                <!-- Card 1 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>Aposentadoria por Idade Urbana</h3>
+                        <p>Para trabalhadores urbanos que completaram 62 anos (mulheres) ou 65 anos (homens), somados ao tempo mínimo de contribuição exigido por lei.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Urbana." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>Aposentadoria Rural</h3>
+                        <p>Para pequenos produtores, pescadores e trabalhadores do campo (55 anos mulheres / 60 anos homens), mediante comprovação de atividade sem carnês mensais obrigatórios.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Rural." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>Tempo de Contribuição (Transição)</h3>
+                        <p>Opções estratégicas para quem já contribuía antes da Reforma da Previdência (regras de pontos, pedágio de 50%/100% e idade mínima progressiva).</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20por%20Tempo%20de%20Contribuição." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>Aposentadoria Especial</h3>
+                        <p>Indicada para profissionais que atuaram expostos a agentes químicos, físicos ou biológicos nocivos à saúde (insalubridade ou periculosidade).</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Especiais." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>Aposentadoria da Pessoa com Deficiência (PCD)</h3>
+                        <p>Regras diferenciadas e mais vantajosas por idade ou tempo de contribuição para segurados com impedimentos físicos, mentais, intelectuais ou sensoriais.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20PCD." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>Aposentadoria por Incapacidade Permanente</h3>
+                        <p>Direito garantido para segurados que, por motivo de doença ou acidente, tornaram-se total e definitivamente incapacitados para o trabalho.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20por%20Incapacidade%20Permanente." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>BPC / LOAS (Idoso 65+)</h3>
+                        <p>Garantia de 1 salário mínimo mensal para idosos a partir de 65 anos em situação de vulnerabilidade, sem exigência de histórico de contribuição ao INSS.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20o%20BPC%20para%20Idoso." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="prev-card">
+                    <div>
+                        <h3>BPC / LOAS (Pessoa com Deficiência)</h3>
+                        <p>Benefício assistencial de 1 salário mínimo para pessoas com deficiência de longo prazo e baixa renda familiar, avaliadas com suporte técnico.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20o%20BPC%20para%20PCD." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="prev-card" style="background-color: #f4f6f9; border-color: var(--dourado);">
+                    <div>
+                        <h3>Teve o Benefício Negado?</h3>
+                        <p>Sofreu indeferimento injusto no INSS? Fazemos a reversão administrativa ou judicial para garantir o seu direito com agilidade.</p>
+                    </div>
+                    <a href="https://wa.me/5598981757704?text=Olá,%20tive%20meu%20benefício%20negado%20no%20INSS%20e%20preciso%20de%20ajuda." class="btn-card" style="background-color: var(--dourado); color: var(--azul-escuro);" target="_blank">Falar sobre Benefício Negado</a>
+                </div>
             </div>
-            <div class="contato-item">
-                <p>✉️ jonathanbzerra.adv@gmail.com</p>
+        </section>
+    </div>
+
+    <!-- Seção / Aba de Contato -->
+    <div id="tab-contato-secao">
+        <section id="contato" class="contato">
+            <div class="contato-info">
+                <h2>Entre em Contato</h2>
+                <p style="margin-bottom: 30px;">Para orientações, análises de casos e agendamentos, fale diretamente com nossa equipe jurídica pelo WhatsApp.</p>
+                
+                <div class="contato-item">
+                    <p>📍 São Luís / São José de Ribamar - MA</p>
+                </div>
+                <div class="contato-item">
+                    <p>✉️ jonathanbzerra.adv@gmail.com</p>
+                </div>
+                <div class="contato-item">
+                    <p>📞 (98) 98175-7704</p>
+                </div>
             </div>
-            <div class="contato-item">
-                <p>📞 (98) 98175-7704</p>
+            <div class="contato-img">
+                <img src="perfil.jpg.JPG" alt="Jonathan Bezerra">
             </div>
-        </div>
-        <div class="contato-img">
-            <img src="perfil.jpg.JPG" alt="Jonathan Bezerra">
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- Rodapé -->
     <footer>
@@ -447,6 +458,35 @@
     <a href="https://wa.me/5598981757704?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." class="whatsapp-float" target="_blank">
         <span>💬</span> WhatsApp
     </a>
+
+    <!-- Script para controle das abas -->
+    <script>
+        function switchTab(tabName) {
+            // Esconde todas as abas principais
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Remove a classe active de todos os links do menu
+            document.getElementById('nav-inicio').classList.remove('active');
+            document.getElementById('nav-previdenciario').classList.remove('active');
+            document.getElementById('nav-contato').classList.remove('active');
+
+            if (tabName === 'inicio') {
+                document.getElementById('tab-inicio').classList.add('active');
+                document.getElementById('nav-inicio').classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (tabName === 'previdenciario') {
+                document.getElementById('tab-previdenciario').classList.add('active');
+                document.getElementById('nav-previdenciario').classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (tabName === 'contato-secao') {
+                // Se clicar em contato, mostra a página inicial + rola até o rodapé de contato
+                document.getElementById('tab-inicio').classList.add('active');
+                document.getElementById('nav-contato').classList.add('active');
+                document.getElementById('contato').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
 
 </body>
 </html>
