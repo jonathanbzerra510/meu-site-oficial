@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Bezerra – Advocacia e Consultoria</title>
+    <title>Jonathan Bezerra – Advocacia e Consultoria Previdenciária</title>
     <style>
         /* Estilos Gerais */
         * {
@@ -15,6 +15,7 @@
         body {
             color: #333;
             background-color: #f8f9fa;
+            scroll-behavior: smooth;
         }
         a {
             text-decoration: none;
@@ -25,6 +26,7 @@
             --azul-escuro: #1A253D;
             --dourado: #C5A869;
             --branco: #ffffff;
+            --verde-whatsapp: #25d366;
         }
 
         /* Cabeçalho */
@@ -35,6 +37,9 @@
             align-items: center;
             padding: 15px 50px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo {
             font-size: 1.2rem;
@@ -49,19 +54,30 @@
         nav a {
             color: var(--azul-escuro);
             font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--dourado);
         }
         .btn-header {
-            background-color: var(--azul-escuro);
+            background-color: var(--verde-whatsapp);
             color: var(--branco);
             padding: 10px 20px;
             border-radius: 5px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+        .btn-header:hover {
+            background-color: #1ebe5d;
         }
 
         /* Seção Hero (Início) */
         .hero {
-            background-color: #555; /* Cor de fundo caso a imagem não carregue */
-            background-image: linear-gradient(rgba(26, 37, 61, 0.8), rgba(26, 37, 61, 0.8)), url('fundo.jpg.JPG');
+            background-color: #555;
+            background-image: linear-gradient(rgba(26, 37, 61, 0.85), rgba(26, 37, 61, 0.85)), url('fundo.jpg.JPG');
             background-size: cover;
             background-position: center;
             color: var(--branco);
@@ -71,6 +87,9 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .hero h1 span {
             color: var(--dourado);
@@ -78,11 +97,13 @@
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 40px;
+            line-height: 1.6;
         }
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         .btn-primary {
             background-color: transparent;
@@ -91,20 +112,29 @@
             padding: 12px 25px;
             border-radius: 5px;
             font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: var(--branco);
+            color: var(--azul-escuro);
         }
         .btn-secondary {
-            background-color: var(--dourado);
+            background-color: var(--verde-whatsapp);
             color: var(--branco);
             padding: 12px 25px;
             border-radius: 5px;
             font-weight: bold;
-            border: 2px solid var(--dourado);
+            border: 2px solid var(--verde-whatsapp);
+            transition: background 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #1ebe5d;
         }
 
         /* Seções de Conteúdo */
         .section-title {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 15px;
             font-size: 2rem;
             color: var(--azul-escuro);
         }
@@ -116,12 +146,67 @@
             background-color: var(--dourado);
             margin: 10px auto 0;
         }
-        .atuacao, .video {
+
+        /* Grid Previdenciário (Landing Page Integrada) */
+        .previdenciario {
             padding: 80px 20px;
             background-color: var(--branco);
+            max-width: 1200px;
+            margin: 0 auto;
         }
+        .prev-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .prev-card {
+            background-color: #fdfdfd;
+            border: 1px solid #eaeaea;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .prev-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.08);
+            border-color: var(--dourado);
+        }
+        .prev-card h3 {
+            color: var(--azul-escuro);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+        .prev-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+        .btn-card {
+            background-color: var(--azul-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .btn-card:hover {
+            background-color: var(--dourado);
+            color: var(--azul-escuro);
+        }
+
+        /* Video Section */
         .video {
+            padding: 80px 20px;
             background-color: #f8f9fa;
+            text-align: center;
         }
 
         /* Contato */
@@ -159,6 +244,8 @@
         }
         .contato-img img {
             max-width: 100%;
+            max-height: 400px;
+            object-fit: cover;
             border-radius: 10px;
         }
 
@@ -169,85 +256,197 @@
             padding: 20px;
             color: var(--azul-escuro);
             font-size: 0.9rem;
+            border-top: 1px solid #eaeaea;
         }
 
         /* WhatsApp Fixo */
         .whatsapp-float {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25d366;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--verde-whatsapp);
             color: white;
             border-radius: 50px;
-            padding: 15px 20px;
-            font-size: 1.2rem;
+            padding: 15px 22px;
+            font-size: 1.1rem;
             font-weight: bold;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
             z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.05);
         }
 
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            nav ul {
+                display: none; /* Simplificado para mobile */
+            }
+            .contato {
+                padding: 50px 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
+    <!-- Cabeçalho -->
     <header>
         <div class="logo">Jonathan Bezerra</div>
         <nav>
             <ul>
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Áreas</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#previdenciario">Benefícios INSS</a></li>
+                <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
-        <a href="#" class="btn-header">Acessar</a>
+        <a href="https://wa.me/5598981757704?text=Olá,%20gostaria%20de%20falar%20com%20um%20especialista%20sobre%20o%20INSS." class="btn-header" target="_blank">
+            WhatsApp
+        </a>
     </header>
 
+    <!-- Seção Hero -->
     <section class="hero">
-        <h1>Advocacia pautada na ética, <span>responsabilidade</span> e comprometimento</h1>
-        <p>Atuação com transparência na resolução de conflitos e validação de direitos,<br>oferecendo um serviço técnico, célere e dedicado à justiça.</p>
+        <h1>Advocacia pautada na ética, <span>responsabilidade</span> e defesa dos seus direitos</h1>
+        <p>Teve o benefício negado ou não sabe qual aposentadoria pedir? Atendimento especializado em Aposentadorias e BPC com total transparência e agilidade.</p>
         <div class="hero-buttons">
-            <a href="#" class="btn-primary">Conheça o Escritório</a>
-            <a href="#" class="btn-secondary">Fale com um Advogado</a>
+            <a href="#previdenciario" class="btn-primary">Ver Benefícios</a>
+            <a href="https://wa.me/5598981757704?text=Olá,%20gostaria%20de%20fazer%20uma%20análise%20gratuita%20do%20meu%20benefício." class="btn-secondary" target="_blank">Falar com Advogado no WhatsApp</a>
         </div>
     </section>
 
-    <section class="atuacao">
-        <h2 class="section-title">Áreas de Atuação</h2>
-        <p style="text-align: center; color: #666;">Serviços jurídicos especializados para atender suas necessidades.</p>
-        <!-- Aqui você pode adicionar cards para as áreas de atuação depois -->
+    <!-- Seção Previdenciária Completa (Landing Page Integrada) -->
+    <section id="previdenciario" class="previdenciario">
+        <h2 class="section-title">Área Previdenciária & Benefícios do INSS</h2>
+        <p style="text-align: center; color: #666; max-width: 700px; margin: 0 auto;">Trabalhamos com todas as modalidades e revisões do Regime Geral de Previdência e Assistência Social. Escolha abaixo a sua situação ou fale diretamente conosco:</p>
+        
+        <div class="prev-grid">
+            <!-- Card 1 -->
+            <div class="prev-card">
+                <div>
+                    <h3>Aposentadoria por Idade Urbana</h3>
+                    <p>Para trabalhadores urbanos que completaram 62 anos (mulheres) ou 65 anos (homens), somados ao tempo mínimo de contribuição exigido por lei.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Urbana." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="prev-card">
+                <div>
+                    <h3>Aposentadoria Rural</h3>
+                    <p>Para pequenos produtores, pescadores e trabalhadores do campo (55 anos mulheres / 60 anos homens). Sem obrigação de carnês mensais, mediante comprovação de atividade.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Rural." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="prev-card">
+                <div>
+                    <h3>Tempo de Contribuição (Transição)</h3>
+                    <p>Opções estratégicas para quem já contribuía antes da Reforma da Previdência (regras de pontos, pedágio de 50% ou 100% e idade mínima progressiva).</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20por%20Tempo%20de%20Contribuição." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="prev-card">
+                <div>
+                    <h3>Aposentadoria Especial</h3>
+                    <p>Indicada para profissionais que atuaram expostos a agentes químicos, físicos ou biológicos nocivos à saúde (insalubridade ou periculosidade).</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20Especial." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="prev-card">
+                <div>
+                    <h3>Aposentadoria da Pessoa com Deficiência (PCD)</h3>
+                    <p>Regras diferenciadas e mais vantajosas por idade ou tempo de contribuição para segurados com impedimentos físicos, mentais, intelectuais ou sensoriais.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20PCD." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="prev-card">
+                <div>
+                    <h3>Aposentadoria por Incapacidade Permanente</h3>
+                    <p>Direito garantido para segurados que, por motivo de doença ou acidente, tornaram-se total e definitivamente incapacitados para o trabalho.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20Aposentadoria%20por%20Incapacidade%20Permanente." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="prev-card">
+                <div>
+                    <h3>BPC / LOAS (Idoso 65+)</h3>
+                    <p>Garantia de 1 salário mínimo mensal para idosos a partir de 65 anos em situação de vulnerabilidade, sem exigência de histórico de contribuição ao INSS.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20o%20BPC%20para%20Idoso." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="prev-card">
+                <div>
+                    <h3>BPC / LOAS (Pessoa com Deficiência)</h3>
+                    <p>Benefício assistencial de 1 salário mínimo para pessoas com deficiência de longo prazo e baixa renda familiar, avaliadas com suporte técnico.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20quero%20saber%20sobre%20o%20BPC%20para%20PCD." class="btn-card" target="_blank">Consultar no WhatsApp</a>
+            </div>
+
+            <!-- Card 9 -->
+            <div class="prev-card" style="background-color: #f4f6f9; border-color: var(--dourado);">
+                <div>
+                    <h3>Teve o Benefício Negado?</h3>
+                    <p>Sofreu indeferimento injusto no INSS? Fazemos a reversão administrativa ou judicial para garantir o seu direito com agilidade.</p>
+                </div>
+                <a href="https://wa.me/5598981757704?text=Olá,%20tive%20meu%20benefício%20negado%20no%20INSS%20e%20preciso%20de%20ajuda." class="btn-card" style="background-color: var(--dourado); color: var(--azul-escuro);" target="_blank">Falar sobre Benefício Negado</a>
+            </div>
+        </div>
     </section>
 
+    <!-- Seção de Vídeo -->
     <section class="video">
-        <h2 class="section-title">Conteúdo em Vídeo</h2>
-        <p style="text-align: center; color: #666;">Acompanhe nossas atualizações e explicações sobre seus direitos.</p>
+        <h2 class="section-title">Conteúdo Informativo</h2>
+        <p style="color: #666; margin-bottom: 20px;">Acompanhe nossas orientações e explicações detalhadas sobre os seus direitos previdenciários.</p>
     </section>
 
-    <section class="contato">
+    <!-- Seção de Contato -->
+    <section id="contato" class="contato">
         <div class="contato-info">
             <h2>Entre em Contato</h2>
-            <p style="margin-bottom: 30px;">Para orientações, análises e agendamentos, envie um e-mail ou fale diretamente no WhatsApp.</p>
+            <p style="margin-bottom: 30px;">Para orientações, análises de casos e agendamentos, fale diretamente com nossa equipe jurídica pelo WhatsApp.</p>
             
             <div class="contato-item">
                 <p>📍 São Luís / São José de Ribamar - MA</p>
             </div>
             <div class="contato-item">
-                <p>✉️ jonathanbzerra.adv@gmail.com </p>
+                <p>✉️ jonathanbzerra.adv@gmail.com</p>
             </div>
             <div class="contato-item">
                 <p>📞 (98) 98175-7704</p>
             </div>
         </div>
         <div class="contato-img">
-            <!-- Substitua 'perfil.jpg.JPG' pelo nome da sua foto -->
-            <img src="perfil.jpg.JPG" alt="Jonathan Bezerra" style="max-height: 400px; object-fit: cover;">
+            <img src="perfil.jpg.JPG" alt="Jonathan Bezerra">
         </div>
     </section>
 
+    <!-- Rodapé -->
     <footer>
         <p>Jonathan Bezerra – Advocacia e Consultoria © 2026. Todos os direitos reservados.</p>
+        <p style="font-size: 0.8rem; color: #777; margin-top: 5px;">Atuação em conformidade com o Código de Ética e Disciplina da OAB.</p>
     </footer>
 
-    <a href="https://wa.me/5598981757704" class="whatsapp-float" target="_blank">WhatsApp</a>
+    <!-- WhatsApp Fixo Flutuante -->
+    <a href="https://wa.me/5598981757704?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20advogado." class="whatsapp-float" target="_blank">
+        <span>💬</span> WhatsApp
+    </a>
 
 </body>
 </html>
