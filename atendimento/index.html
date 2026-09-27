@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Bezerra | Assessoria Jurídica Especializada</title>
+    <!-- Fonte profissional do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset básico e tipografia */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #f4f7f6; color: #333; line-height: 1.6; }
+        
+        /* Cabeçalho da Página */
+        header { background-color: #0d1b2a; color: #fff; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; letter-spacing: 1px; }
+        header p.oab { color: #e0a96d; font-weight: 600; font-size: 16px; margin-bottom: 20px; }
+        header p.desc { max-width: 600px; margin: 0 auto; font-size: 15px; color: #ccc; }
+
+        /* Container Principal */
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .section-title { text-align: center; font-size: 24px; margin-bottom: 40px; font-weight: 700; color: #1b263b; }
+
+        /* Grid dos Cards */
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+
+        /* Estilo Individual de cada Card */
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border-top: 4px solid #0d1b2a;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card-icon { font-size: 40px; color: #e0a96d; margin-bottom: 20px; text-align: center; }
+        .card h3 { font-size: 20px; font-weight: 700; text-align: center; margin-bottom: 20px; color: #0d1b2a; }
+        .card ul { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .card ul li { position: relative; padding-left: 25px; margin-bottom: 12px; font-size: 14px; color: #555; }
+        .card ul li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: #e0a96d;
+        }
+
+        /* Botão do WhatsApp dentro do Card */
+        .btn-wa {
+            background-color: #25d366;
+            color: #fff;
+            text-align: center;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            display: block;
+            transition: background 0.3s ease;
+        }
+        .btn-wa:hover { background-color: #1ebe57; }
+        .btn-wa i { margin-right: 8px; font-size: 18px; }
+
+        /* Botão Flutuante Persistente */
+        .float-wa {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .float-wa:hover { transform: scale(1.1); }
+
+        /* Rodapé */
+        footer { background-color: #1b263b; color: #fff; text-align: center; padding: 20px; margin-top: 50px; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>JONATHAN BEZERRA</h1>
+        <p class="oab">Advocacia e Consultoria Jurídica | OAB/MA 31.369</p>
+        <p class="desc">Assessoria jurídica estratégica focada em resultados, segurança empresarial e defesa intransigente dos seus direitos. Escolha a sua área de interesse abaixo e fale diretamente conosco.</p>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title">Nossas Áreas de Atuação</h2>
+        
+        <div class="cards-grid">
+            
+            <!-- Card Trabalhista -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Direito Trabalhista</h3>
+                <ul>
+                    <li>Defesa em Reclamações Trabalhistas</li>
+                    <li>Auditoria e Prevenção de Passivos</li>
+                    <li>Elaboração e Revisão de Contratos</li>
+                    <li>Adequação de Escalas e Jornadas</li>
+                </ul>
+                <a href="https://wa.me/5598000000000?text=Ol%C3%A1,%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o%20sobre%20assuntos%20Trabalhistas." class="btn-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar sobre Trabalhista
+                </a>
+            </div>
+
+            <!-- Card Cível / Empresarial -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-building"></i></div>
+                <h3>Direito Cível e Negócios</h3>
+                <ul>
+                    <li>Recuperação de Crédito e Cobranças</li>
+                    <li>Defesa do Consumidor para Empresas</li>
+                    <li>Indenizações e Responsabilidade Civil</li>
+                    <li>Elaboração de Contratos Comerciais</li>
+                </ul>
+                <a href="https://wa.me/5598000000000?text=Ol%C3%A1,%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o%20sobre%20assuntos%20C%C3%ADveis%20e%20Empresariais." class="btn-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar sobre Cível
+                </a>
+            </div>
+
+            <!-- Card Penal -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-gavel"></i></div>
+                <h3>Direito Penal</h3>
+                <ul>
+                    <li>Acompanhamento em Delegacia (Plantão)</li>
+                    <li>Defesa em Processos Criminais</li>
+                    <li>Crimes Econômicos e Tributários</li>
+                    <li>Habeas Corpus e Recursos</li>
+                </ul>
+                <a href="https://wa.me/5598000000000?text=Ol%C3%A1,%20preciso%20de%20atendimento%20urgente%20na%20%C3%A1rea%20Penal." class="btn-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Plantão Penal
+                </a>
+            </div>
+
+            <!-- Card Previdenciário -->
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>Direito Previdenciário</h3>
+                <ul>
+                    <li>Planejamento de Aposentadoria</li>
+                    <li>Concessão de Auxílio-Doença</li>
+                    <li>Benefício de Prestação Continuada (BPC/LOAS)</li>
+                    <li>Revisão de Benefícios Negados</li>
+                </ul>
+                <a href="https://wa.me/5598000000000?text=Ol%C3%A1,%20preciso%20de%20uma%20orienta%C3%A7%C3%A3o%20sobre%20assuntos%20Previdenci%C3%A1rios." class="btn-wa" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Falar sobre INSS
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Botão Flutuante (Leva para uma saudação geral) -->
+    <a href="https://wa.me/5598000000000?text=Ol%C3%A1,%20acessei%20o%20site%20e%20gostaria%20de%20uma%20consulta%20jur%C3%ADdica." class="float-wa" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Jonathan Bezerra | OAB/MA 31.369. Todos os direitos reservados.</p>
+        <p>Atuação em conformidade com o Provimento nº 205/2021 da OAB.</p>
+    </footer>
+
+</body>
+</html>
